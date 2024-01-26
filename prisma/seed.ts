@@ -10,6 +10,7 @@ async function main() {
       name: "Admin",
       email: "admin@admin.com",
       role: "admin",
+      description: 'test',
     },
   });
 
