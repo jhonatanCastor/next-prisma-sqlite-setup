@@ -23,12 +23,18 @@ export default function ListUsers() {
           key={user.id}
           style={{ border: "1px solid #ccc", textAlign: "center" }}
         >
-          <img
-            src={`https://robohash.org/${user.id}?set=set2&size=180x180`}
-            alt={user.name}
-            style={{ height: 180, width: 180 }}
-          />
-          <h3>{user.name}</h3>
+          <div>
+            <img
+              src={`https://robohash.org/${user.id}?set=set2&size=180x180`}
+              alt={user.name}
+              style={{  margin: 40 }}
+            />
+            <div>
+              <h3>{user.name}</h3>
+              <h3>{user.email}</h3>
+              <h3>{user.role}</h3>
+            </div>
+          </div>
         </div>
       ))}
     </div>
