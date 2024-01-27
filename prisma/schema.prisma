@@ -7,13 +7,26 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+model Users {
   id        String   @id @default(uuid())
+  code      String   @default(uuid())
   name      String
   email     String   @unique
   role      String
+  password  String
   description String 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  tokens Tokens[]
+}
+
+model Tokens {
+  uid String @id @unique @default(uuid())
+  token String @unique @default(uuid())
+  expiresAt DateTime?
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+  author Users @relation(fields: [user_id], references: [id], onUpdate: NoAction)
+  user_id String  
 }
 
