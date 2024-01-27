@@ -1,6 +1,6 @@
 "use client";
 
-import { User } from "@prisma/client";
+import { Users } from "@prisma/client";
 import React, { cache, use } from "react";
 
 const getUsers = cache(() =>
@@ -8,7 +8,7 @@ const getUsers = cache(() =>
 );
 
 export default function ListUsers() {
-  let users = use<User[]>(getUsers());
+  let users = use<Users[]>(getUsers());
 
   return (
     <div
