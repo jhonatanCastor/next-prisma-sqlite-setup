@@ -18,6 +18,7 @@ model Users {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   tokens Tokens[]
+  address Addresses[]
 }
 
 model Tokens {
@@ -28,5 +29,24 @@ model Tokens {
   updated_at DateTime @default(now())
   author Users @relation(fields: [user_id], references: [id], onUpdate: NoAction)
   user_id String  
+}
+
+model Addresses {
+  id String @id @default(uuid())
+  cep String   
+  state String 
+  city String 
+  neighborhood String 
+  street_name String 
+  number String 
+  complement String 
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  deleted_at DateTime?
+
+  author Users @relation(fields: [user_id], references: [id], onUpdate: NoAction)
+  user_id String 
+
+  @@map("addresses")
 }
 
